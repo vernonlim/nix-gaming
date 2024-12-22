@@ -63,7 +63,7 @@
       install osu.png $out/osu.png
       cp -r usr/bin $out/lib/osu
       makeWrapper $out/lib/osu/osu\! $out/bin/osu-lazer \
-        --set COMPlus_GCGen0MaxBudget "600000" \
+        --set COMPlus_GCGen0MaxBudget "100000" \
         --set OSU_EXTERNAL_UPDATE_PROVIDER "1" \
         --set vblank_mode "0" \
         --suffix LD_LIBRARY_PATH : "${lib.makeLibraryPath buildInputs}"
