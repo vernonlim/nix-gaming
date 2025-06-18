@@ -1,7 +1,7 @@
 #!/usr/bin/env -S nix shell nixpkgs#curl nixpkgs#jq -c bash
 
 info="pkgs/osu-lazer-bin/info.json"
-version=$(curl -s "https://api.github.com/repos/ppy/osu/releases/latest" | jq -r '.tag_name')
+version=$(curl -s "https://api.github.com/repos/ppy/osu/releases" | jq -r ' first | .tag_name')
 oldversion=$(jq -r '.version' "$info")
 url="https://github.com/ppy/osu/releases/download/${version}/osu.AppImage"
 
