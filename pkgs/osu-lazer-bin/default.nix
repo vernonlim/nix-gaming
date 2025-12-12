@@ -5,14 +5,13 @@
   makeWrapper,
   symlinkJoin,
   gamemode,
-  pipewire_latency ? "64/44100", # reasonable default
   gmrun_enable ? true, # keep this flag for compatibility
   command_prefix ?
     if gmrun_enable
     # won't hurt users even if they don't have it set up
     then "${gamemode}/bin/gamemoderun"
     else null,
-  releaseStream ? "lazer",
+  releaseStream ? "tachyon",
   osu-mime,
 }: let
   pname = "osu-lazer-bin";
@@ -36,10 +35,8 @@
       mv -v $out/bin/${pname} $out/bin/osu!
 
       wrapProgram $out/bin/osu! \
-        --set PIPEWIRE_LATENCY "${pipewire_latency}" \
         --set OSU_EXTERNAL_UPDATE_PROVIDER "1" \
-        --set OSU_EXTERNAL_UPDATE_STREAM "${releaseStream}" \
-        --set vblank_mode "0"
+        --set OSU_EXTERNAL_UPDATE_STREAM "${releaseStream}"
 
       ${
         # a hack to infiltrate the command in the wrapper
