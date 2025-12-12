@@ -83,7 +83,18 @@ in {
       # write extra config
       extraConfig = {
         pipewire."99-lowlatency" = {
-          "context.properties"."default.clock.min-quantum" = cfg.quantum;
+          "context.properties" = {
+            "default.clock" = {
+              "min-quantum" = cfg.quantum;
+              "rate" = cfg.rate;
+              "rate.match" = false;
+              "quantum.match" = true;
+              "force-rate" = cfg.rate;
+            };
+
+            "mem.allow-mlock" = true;
+            "loop.rt-prio" = 88;
+          };
 
           "context.modules" = [
             {
