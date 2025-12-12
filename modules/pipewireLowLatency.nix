@@ -86,10 +86,10 @@ in {
           "context.properties" = {
             "default.clock" = {
               "min-quantum" = cfg.quantum;
-              "rate" = cfg.rate;
-              "rate.match" = false;
-              "quantum.match" = true;
-              "force-rate" = cfg.rate;
+              # "rate" = cfg.rate;
+              # "rate.match" = false;
+              # "quantum.match" = true;
+              # "force-rate" = cfg.rate;
             };
 
             "mem.allow-mlock" = true;
