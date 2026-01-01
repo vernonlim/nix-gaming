@@ -23,7 +23,7 @@ in
       })
       (fetchurl {
         url = "https://aur.archlinux.org/cgit/aur.git/plain/osu-file-extensions.xml?h=osu-mime&id=${osu-mime-spec-rev}";
-        sha256 = "5Vn+br6UA3EtnINXVuJ5ntAXBtqIl9bm67AVEMZiiBU=";
+        sha256 = "MgQNW0RpnEYTC0ym6wB8cA6a8GCED1igsjOtHPXNZVo=";
       })
     ];
 
