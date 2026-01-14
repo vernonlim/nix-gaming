@@ -119,6 +119,7 @@ in {
           "pulse.min.req" = qr;
           "pulse.min.quantum" = qr;
           "pulse.min.frag" = qr;
+          "pulse.default.req" = "256/48000";
         };
 
         client."99-lowlatency"."stream.properties" = {
