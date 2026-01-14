@@ -85,6 +85,7 @@ in {
         pipewire."99-lowlatency" = {
           "context.properties" = {
             "default.clock" = {
+              "quantum" = 256;
               "min-quantum" = cfg.quantum;
               # "rate" = cfg.rate;
               # "rate.match" = false;
