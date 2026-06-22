@@ -7,8 +7,8 @@ releases="$(curl -fsSL "https://api.github.com/repos/ppy/osu/releases")"
 
 for releaseStream in $(jq -r 'keys[]' "$info"); do
   query=$(jq -r ".$releaseStream.query" "$info")
-  # Sort descending by creation date in case GitHub releases order gets messed up
-  version=$(jq -r "sort_by(.created_at) | reverse | $query" <<<"$releases")
+  # Sort descending by creation date (and tag name as tiebreaker) in case GitHub releases order gets messed up
+  version=$(jq -r "sort_by(.created_at, .tag_name) | reverse | $query" <<<"$releases")
   oldversion=$(jq -r ".$releaseStream.version" "$info")
   url="https://github.com/ppy/osu/releases/download/${version}/osu.AppImage"
 
