@@ -34,9 +34,9 @@ let
     extraPkgs = pkgs: [ pkgs.icu ];
 
     # fix OpenGL renderer on nvidia + wayland
-    extraBwrapArgs = [
-      "--ro-bind-try /etc/egl/egl_external_platform.d /etc/egl/egl_external_platform.d"
-    ];
+    # extraBwrapArgs = [
+    #   "--ro-bind-try /etc/egl/egl_external_platform.d /etc/egl/egl_external_platform.d"
+    # ];
 
     extraInstallCommands =
       let
